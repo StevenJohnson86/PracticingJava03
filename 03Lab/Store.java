@@ -10,7 +10,7 @@ public class Store implements ObjectStore{
   public Store(int i){
     goals = new Todo[i];
   }
-  // Create a Store class that will implement the ObjectStore interface and implement required methods.
+  //O(n)
   public void add(Todo t){
     for(int i = 0; i < goals.length; i++){
       if(goals[i] == null){
@@ -23,7 +23,7 @@ public class Store implements ObjectStore{
     System.out.println("Store is full! Size increased by 10.");
     add(t);
   }
-
+//O(n)
   public void remove(Todo t){
     for(int i = 0; i < goals.length; i++){
       if (goals[i] == t) goals[i] = null;
@@ -31,11 +31,11 @@ public class Store implements ObjectStore{
     }
     System.out.println("Specified Todo not found in Store.");
   }
-
+//O(1)
   public String objectAtIndex(int index){
     return goals[index].text;
   }
-
+//O(n)
   public int numberOfObjects(){
     int count = 0;
     for(int i = 0; i < goals.length; i++){
@@ -43,7 +43,7 @@ public class Store implements ObjectStore{
     }
     return count;
   }
-
+//O(n)
   public Todo[] allTodos(){
     return goals;
   }
